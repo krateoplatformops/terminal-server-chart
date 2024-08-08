@@ -42,7 +42,7 @@ spec:
               protocol: TCP
           env:
             - name: PORT
-              value: {{ .Values.service.port }}
+              value: {{ .Values.service.port | quote }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
